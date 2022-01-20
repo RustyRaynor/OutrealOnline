@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = true;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         move = GetComponent<CharacterController>();
 

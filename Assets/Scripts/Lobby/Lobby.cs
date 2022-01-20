@@ -103,7 +103,7 @@ public class Lobby : MonoBehaviour
 
             for (int i = 1; i < rooms.Count; i++)
             {
-                if (rooms[i].UserCount != 6)
+                if (rooms[i].UserCount != 3)
                 {
                     NetworkManager.Instance.isHost = false;
                     NetworkManager.Instance.JoinRoom(rooms[i].Name);
@@ -116,7 +116,7 @@ public class Lobby : MonoBehaviour
             RoomSettings settings = new RoomSettings(NetworkManager.Instance.sfs.MySelf.Name + "'s game");
             settings.GroupId = "games";
             settings.IsGame = true;
-            settings.MaxUsers = 6;
+            settings.MaxUsers = 3;
 
             NetworkManager.Instance.CreateRoom(settings);
         }

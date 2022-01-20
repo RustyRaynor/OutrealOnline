@@ -57,9 +57,9 @@ public class Game : MonoBehaviour
 
         player.cantMove = true;
       
-       preGameText.text = "Waiting for players... \n \n" + playerIDs.Count + " / 6";
+       preGameText.text = "Waiting for players... \n \n" + playerIDs.Count + " / 3";
       
-       if(playerIDs.Count == 6)
+       if(playerIDs.Count == 3)
        {      
            NetworkManager.Instance.StartGame();
        }
@@ -110,7 +110,6 @@ public class Game : MonoBehaviour
 
     void OnRoomJoin(BaseEvent evt)
     {
-        NetworkManager.Instance.sfs.RemoveAllEventListeners();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
     }
 
@@ -136,7 +135,7 @@ public class Game : MonoBehaviour
 
         NetworkManager.Instance.SendPlayerLocation(player.transform.position, player.transform.rotation);
 
-        preGameText.text = "Waiting for players... \n \n" + NetworkManager.Instance.sfs.LastJoinedRoom.UserList.Count + " / 6";
+        preGameText.text = "Waiting for players... \n \n" + NetworkManager.Instance.sfs.LastJoinedRoom.UserList.Count + " / 3";
     }
 
     void OnUserExitRoomInGame(BaseEvent evt)
@@ -173,7 +172,7 @@ public class Game : MonoBehaviour
                     }
                 }
 
-                preGameText.text = "Waiting for players... \n \n" + playerIDs.Count + " / 6";
+                preGameText.text = "Waiting for players... \n \n" + playerIDs.Count + " / 3";
                 break;
         }
     }
